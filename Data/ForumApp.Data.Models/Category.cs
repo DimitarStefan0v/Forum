@@ -17,6 +17,7 @@
 
         public string Description { get; set; }
 
+        // TODO: add image
         public ICollection<Post> Posts { get; set; }
     }
 }
