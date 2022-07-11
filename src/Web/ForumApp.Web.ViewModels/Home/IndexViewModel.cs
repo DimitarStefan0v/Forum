@@ -1,13 +1,9 @@
 ﻿namespace ForumApp.Web.ViewModels.Home
 {
+    using System.Collections.Generic;
+
     public class IndexViewModel
     {
-        public string Title { get; set; }
-
-        public string Description { get; set; }
-
-        public string Name { get; set; }
-
-        public string Url => $"/c/{this.Name.Replace(' ', '-')}";
+        public IEnumerable<IndexCategoryViewModel> Categories { get; set; }
     }
 }
