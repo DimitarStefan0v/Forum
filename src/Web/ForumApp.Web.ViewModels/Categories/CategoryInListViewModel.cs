@@ -8,5 +8,7 @@
         public string Title { get; set; }
 
         public string Name { get; set; }
+
+        public string Url => $"/parent-category/{this.Name.Replace(' ', '-').ToLower()}";
     }
 }
