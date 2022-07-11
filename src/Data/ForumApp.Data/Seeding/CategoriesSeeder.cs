@@ -18,19 +18,27 @@
 
             var categories = new List<string>
             {
-                "Education",
-                "Technology",
-                "Learning to Program",
-                "Computer Programming",
-                "Television Series",
-                "Movies",
-                "Mathematics",
-                "Self-Improvement",
-                "Healthy Lifestyle",
-                "Sport",
-                "Politics",
-                "Coronavirus",
+                "Sports",
+                "Gaming",
                 "News",
+                "TV",
+                "Pics & Gifs",
+                "Travel",
+                "Tech",
+                "Music",
+                "Art & Design",
+                "Beauty",
+                "Books & Writing",
+                "Discussion",
+                "Fashion",
+                "Finance & Business",
+                "Food",
+                "Health & Fitness",
+                "Learning",
+                "Mindblowing",
+                "Parenting",
+                "Relationships",
+                "Science",
             };
 
             foreach (var category in categories)
@@ -39,7 +47,6 @@
                 {
                     Name = category,
                     Title = category,
-                    Description = category,
                 });
             }
         }

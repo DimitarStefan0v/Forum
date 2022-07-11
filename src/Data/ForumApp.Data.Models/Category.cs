@@ -8,16 +8,13 @@
     {
         public Category()
         {
-            this.Posts = new HashSet<Post>();
+            this.SubCategories = new HashSet<SubCategory>();
         }
-
-        public string Name { get; set; }
 
         public string Title { get; set; }
 
-        public string Description { get; set; }
+        public string Name { get; set; }
 
-        // TODO: add image
-        public ICollection<Post> Posts { get; set; }
+        public ICollection<SubCategory> SubCategories { get; set; }
     }
 }

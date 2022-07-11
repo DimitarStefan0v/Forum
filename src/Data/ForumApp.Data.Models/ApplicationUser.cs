@@ -16,6 +16,7 @@ namespace ForumApp.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.SubCategories = new HashSet<SubCategory>();
             this.Posts = new HashSet<Post>();
             this.Comments = new HashSet<Comment>();
         }
@@ -35,6 +36,8 @@ namespace ForumApp.Data.Models
         public ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        public ICollection<SubCategory> SubCategories { get; set; }
 
         public ICollection<Post> Posts { get; set; }
 

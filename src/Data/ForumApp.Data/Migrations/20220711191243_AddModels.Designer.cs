@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ForumApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220711065427_AddInitialModels")]
-    partial class AddInitialModels
+    [Migration("20220711191243_AddModels")]
+    partial class AddModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -158,9 +158,6 @@ namespace ForumApp.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -231,9 +228,6 @@ namespace ForumApp.Data.Migrations
                     b.Property<string>("AddedByUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
@@ -249,6 +243,9 @@ namespace ForumApp.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("SubCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -256,9 +253,9 @@ namespace ForumApp.Data.Migrations
 
                     b.HasIndex("AddedByUserId");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("IsDeleted");
+
+                    b.HasIndex("SubCategoryId");
 
                     b.ToTable("Posts");
                 });
@@ -294,6 +291,52 @@ namespace ForumApp.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Settings");
+                });
+
+            modelBuilder.Entity("ForumApp.Data.Models.SubCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AddedByUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddedByUserId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("SubCategories");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -425,8 +468,25 @@ namespace ForumApp.Data.Migrations
                         .WithMany("Posts")
                         .HasForeignKey("AddedByUserId");
 
-                    b.HasOne("ForumApp.Data.Models.Category", "Category")
+                    b.HasOne("ForumApp.Data.Models.SubCategory", "SubCategory")
                         .WithMany("Posts")
+                        .HasForeignKey("SubCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("AddedByUser");
+
+                    b.Navigation("SubCategory");
+                });
+
+            modelBuilder.Entity("ForumApp.Data.Models.SubCategory", b =>
+                {
+                    b.HasOne("ForumApp.Data.Models.ApplicationUser", "AddedByUser")
+                        .WithMany("SubCategories")
+                        .HasForeignKey("AddedByUserId");
+
+                    b.HasOne("ForumApp.Data.Models.Category", "Category")
+                        .WithMany("SubCategories")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -498,16 +558,23 @@ namespace ForumApp.Data.Migrations
                     b.Navigation("Posts");
 
                     b.Navigation("Roles");
+
+                    b.Navigation("SubCategories");
                 });
 
             modelBuilder.Entity("ForumApp.Data.Models.Category", b =>
                 {
-                    b.Navigation("Posts");
+                    b.Navigation("SubCategories");
                 });
 
             modelBuilder.Entity("ForumApp.Data.Models.Post", b =>
                 {
                     b.Navigation("Comments");
+                });
+
+            modelBuilder.Entity("ForumApp.Data.Models.SubCategory", b =>
+                {
+                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }
