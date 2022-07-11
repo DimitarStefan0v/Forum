@@ -3,16 +3,13 @@
     using System.Diagnostics;
 
     using ForumApp.Web.ViewModels;
-    using ForumApp.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
         public IActionResult Index()
         {
-            var viewModel = new IndexViewModel();
-
-            return this.View(viewModel);
+            return this.View();
         }
 
         public IActionResult Privacy()

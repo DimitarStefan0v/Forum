@@ -4,6 +4,6 @@
 
     public interface ICategoriesService
     {
-        IEnumerable<T> GetAll<T>(int? count);
+        IEnumerable<T> GetAllCategories<T>(int? count = null);
     }
 }

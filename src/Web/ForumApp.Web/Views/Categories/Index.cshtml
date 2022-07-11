@@ -1,0 +1,10 @@
+﻿@using ForumApp.Web.ViewModels.Categories
+@model CategoriesListViewModel
+
+@foreach (var category in Model.Categories)
+{
+    <article class="single-category">
+        Title -> @category.Title
+        Name -> @category.Name
+    </article>
+}

@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Services\ForumApp.Services.Mapping\ForumApp.Services.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Home\" />
+  </ItemGroup>
+
 </Project>

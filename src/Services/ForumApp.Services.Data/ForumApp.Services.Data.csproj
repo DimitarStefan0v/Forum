@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\ForumApp.Data.Common\ForumApp.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\ForumApp.Data.Models\ForumApp.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\ForumApp.Web.ViewModels\ForumApp.Web.ViewModels.csproj" />
     <ProjectReference Include="..\ForumApp.Services.Mapping\ForumApp.Services.Mapping.csproj" />
   </ItemGroup>
 

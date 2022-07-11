@@ -16,21 +16,20 @@
             this.categoriesRepository = categoriesRepository;
         }
 
-        public IEnumerable<T> GetAll<T>(int? count = 10)
+        public IEnumerable<T> GetAllCategories<T>(int? count = null)
         {
-            var query = this.categoriesRepository
+            IQueryable<Category> query = this.categoriesRepository
                 .All()
                 .OrderBy(x => x.Title);
 
             if (count.HasValue)
             {
-                query
+                query = query
                     .Take(count.Value);
             }
 
             return query
-                .To<T>()
-                .ToList();
+                .To<T>().ToList();
         }
     }
 }
