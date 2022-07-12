@@ -13,7 +13,7 @@
 
         public string Description { get; set; }
 
-        public string UserUserName { get; set; }
+        public string AddedByUserUserName { get; set; }
 
         public string Url => $"/f/{this.Name.Replace(' ', '-').ToLower()}";
 

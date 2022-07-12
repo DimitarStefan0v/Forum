@@ -36,7 +36,7 @@
         {
             return this.categoriesRepository
                 .All()
-                .Where(x => x.Name == name)
+                .Where(x => x.Name.ToLower() == name.Replace('-', ' ').Trim())
                 .To<T>()
                 .FirstOrDefault();
         }
