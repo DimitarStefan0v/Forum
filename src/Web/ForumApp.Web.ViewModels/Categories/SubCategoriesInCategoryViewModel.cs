@@ -1,5 +1,7 @@
 ﻿namespace ForumApp.Web.ViewModels.Categories
 {
+    using System.Collections.Generic;
+
     using ForumApp.Data.Models;
     using ForumApp.Services.Mapping;
 
@@ -16,6 +18,6 @@
         public string Url => $"/f/{this.Name.Replace(' ', '-').ToLower()}";
 
         // TODO: add image
-        public ICollection<PostsInSubCategoryViewModel> Posts { get; set; }
+        // public ICollection<PostsInSubCategoryViewModel> Posts { get; set; }
     }
 }

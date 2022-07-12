@@ -1,1 +1,24 @@
-﻿
+﻿@using ForumApp.Web.ViewModels.Categories
+@model SingleCategoryViewModel
+
+
+
+<section class="byname-single-category">
+    <article class="byname-single-category-title">
+        <h2>@Model.Title</h2>
+    </article>
+    @foreach (var subCategory in Model.SubCategories)
+    {
+        <a href="@subCategory.Url">
+            <article class="byname-single-category-subcategory-title">
+                @subCategory.Title
+            </article>
+            <article class="byname-single-category-subcategory-description">
+                <p>@subCategory.Description</p>
+            </article>
+            <article class="byname-single-category-subcategory-userusername">
+                @subCategory.UserUserName
+            </article>
+        </a>
+    }
+</section>

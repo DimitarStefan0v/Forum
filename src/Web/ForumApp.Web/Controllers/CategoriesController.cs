@@ -22,7 +22,8 @@
 
         public IActionResult ByName(string name)
         {
-            return this.View();
+            var viewModel = this.categoriesService.GetCategoryByName<SingleCategoryViewModel>(name);
+            return this.View(viewModel);
         }
     }
 }
