@@ -19,5 +19,10 @@
             viewModel.Categories = this.categoriesService.GetAllCategories<CategoryInListViewModel>();
             return this.View(viewModel);
         }
+
+        public IActionResult ByName(string name)
+        {
+            return this.View();
+        }
     }
 }

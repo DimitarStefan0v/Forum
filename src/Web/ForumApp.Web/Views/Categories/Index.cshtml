@@ -4,6 +4,7 @@
 @foreach (var category in Model.Categories)
 {
     // TODO: add anchor wrapper for the whole category with the custom Url
+    <a href="@category.Url">
     <article class="single-category">
         <article class="single-category-img-wrapper">
            @* TODO: add img*@
@@ -12,4 +13,5 @@
             @category.Title
         </article>
     </article>
+    </a>
 }
