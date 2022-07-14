@@ -3,20 +3,20 @@
 
 
 
-<section class="byname-single-category">
-    <article class="byname-single-category-title">
+<section class="byName-category">
+    <article class="byName-category-title">
         <h2>@Model.Title</h2>
     </article>
     @foreach (var subCategory in Model.SubCategories)
     {
         <a href="@subCategory.Url">
-            <article class="byname-single-category-subcategory-title">
+            <article class="byName-category-subCategory-title">
                 <h3>@subCategory.Title</h3>
             </article>
-            <article class="byname-single-category-subcategory-description">
+            <article class="byName-category-subCategory-description">
                 <p>@subCategory.Description</p>
             </article>
-            <article class="byname-single-category-subcategory-userusername">
+            <article class="byName-category-subCategory-userUsername">
                 @subCategory.AddedByUserUserName
             </article>
         </a>

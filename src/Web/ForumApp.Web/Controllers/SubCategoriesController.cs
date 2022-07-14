@@ -8,5 +8,10 @@
         {
             return this.View();
         }
+
+        public IActionResult ByName(string name)
+        {
+            return this.View();
+        }
     }
 }
