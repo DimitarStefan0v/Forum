@@ -1,4 +1,4 @@
-﻿namespace ForumApp.Web.ViewModels.Categories
+﻿namespace ForumApp.Web.ViewModels.SubCategories
 {
     using System.Collections.Generic;
 

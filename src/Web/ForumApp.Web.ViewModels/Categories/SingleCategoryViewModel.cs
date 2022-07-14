@@ -4,6 +4,7 @@
 
     using ForumApp.Data.Models;
     using ForumApp.Services.Mapping;
+    using ForumApp.Web.ViewModels.SubCategories;
 
     public class SingleCategoryViewModel : IMapFrom<Category>
     {
