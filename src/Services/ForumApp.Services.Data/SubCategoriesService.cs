@@ -1,13 +1,10 @@
 ﻿namespace ForumApp.Services.Data
 {
+    using System.Linq;
+
     using ForumApp.Data.Common.Repositories;
     using ForumApp.Data.Models;
     using ForumApp.Services.Mapping;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class SubCategoriesService : ISubCategoriesService
     {

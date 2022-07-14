@@ -34,9 +34,11 @@
 
         public T GetCategoryByName<T>(string name)
         {
+            var searchName = name.Replace('-', ' ').Trim();
+
             return this.categoriesRepository
                 .All()
-                .Where(x => x.Name.ToLower() == name.Replace('-', ' ').Trim())
+                .Where(x => x.Name.ToLower() == searchName)
                 .To<T>()
                 .FirstOrDefault();
         }
