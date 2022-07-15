@@ -15,7 +15,7 @@
 
         public string AddedByUserUserName { get; set; }
 
-        public string Url => $"/f/{this.Name.Replace(' ', '-').ToLower()}";
+        public string Url => $"/community/{this.Name.Replace(' ', '-').ToLower()}";
 
         // TODO: add image
         // public ICollection<PostsInSubCategoryViewModel> Posts { get; set; }

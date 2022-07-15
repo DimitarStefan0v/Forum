@@ -103,7 +103,7 @@
 
             app.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute("forumMainCategory", "parent-category/{name:minlength(2)}", new { controller = "Categories", action = "ByName" });
-            app.MapControllerRoute("forumSubCategory", "f/{name:minlength(2)}", new { controller = "SubCategories", action = "ByName" });
+            app.MapControllerRoute("forumSubCategory", "community/{name:minlength(2)}", new { controller = "SubCategories", action = "ByName" });
             app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
         }
