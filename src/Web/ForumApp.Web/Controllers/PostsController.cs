@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-
-namespace ForumApp.Web.Controllers
+﻿namespace ForumApp.Web.Controllers
 {
+    using ForumApp.Web.ViewModels.Posts;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+
     public class PostsController : Controller
     {
         public IActionResult Index()
