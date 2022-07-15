@@ -4,6 +4,7 @@
 
     public class PostCreateInputModel
     {
+
         [Required]
         public string Title { get; set; }
 

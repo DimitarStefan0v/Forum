@@ -1,11 +1,12 @@
 ﻿namespace ForumApp.Web.Controllers
 {
+    using System.Threading.Tasks;
+
     using ForumApp.Data.Models;
     using ForumApp.Web.ViewModels.Posts;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using System.Threading.Tasks;
 
     public class PostsController : Controller
     {
@@ -18,7 +19,12 @@
 
         public IActionResult Index()
         {
-            return View();
+            return this.View();
+        }
+
+        public IActionResult ById(int id)
+        {
+            return this.View();
         }
 
         [Authorize]
@@ -39,6 +45,7 @@
             var user = await this.userManager.GetUserAsync(this.User);
 
             // TODO: add in db with service
+            // TODO: RedirectToAction ById with parameter post.Id
             return this.Redirect("/");
         }
     }
