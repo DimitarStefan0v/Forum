@@ -34,7 +34,7 @@
 
         [Authorize]
         [HttpPost]
-        public IActionResult Create(SubCategoryPostInputModel input)
+        public IActionResult Create(SubCategoryInputModel input)
         {
             if (!this.ModelState.IsValid)
             {
