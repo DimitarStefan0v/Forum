@@ -47,9 +47,8 @@
 
             var user = await this.userManager.GetUserAsync(this.User);
 
-            // TODO: add in db with service
-            // TODO: RedirectToAction ById with parameter post.Id
-            return this.Redirect("/");
+            var postId = await this.postsService.CreateAsync(input, user.Id);
+            return this.RedirectToAction(nameof(this.ById), new { id = postId });
         }
     }
 }
