@@ -7,6 +7,16 @@
 
 <h1>@ViewData["Title"]</h1>
 
+<script src="/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea",
+        plugins: [
+            "image paste table link code media fullscreen wordcount searchreplace lists"
+        ]
+    });
+</script>
+
 <form method="post" asp-action="Create">
 
     <label asp-for="Title"></label>
