@@ -1,18 +1,25 @@
 ﻿namespace ForumApp.Web.Controllers
 {
+    using System.Threading.Tasks;
+
+    using ForumApp.Data.Models;
     using ForumApp.Services.Data;
-    using ForumApp.Web.ViewModels.Categories;
     using ForumApp.Web.ViewModels.SubCategories;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
     public class SubCategoriesController : BaseController
     {
         private readonly ISubCategoriesService subCategoriesService;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public SubCategoriesController(ISubCategoriesService subCategoriesService)
+        public SubCategoriesController(
+            ISubCategoriesService subCategoriesService,
+            UserManager<ApplicationUser> userManager)
         {
             this.subCategoriesService = subCategoriesService;
+            this.userManager = userManager;
         }
 
         public IActionResult Index()
@@ -34,12 +41,14 @@
 
         [Authorize]
         [HttpPost]
-        public IActionResult Create(SubCategoryInputModel input)
+        public async Task<IActionResult> Create(SubCategoryInputModel input)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
             }
+
+            var user = await this.userManager.GetUserAsync(this.User);
 
             // TODO: add in db with service
             return this.Redirect("/");
