@@ -50,7 +50,7 @@
 
             var user = await this.userManager.GetUserAsync(this.User);
 
-            // TODO: add in db with service
+            await this.subCategoriesService.CreateAsync(input, user.Id);
             return this.Redirect("/");
         }
     }

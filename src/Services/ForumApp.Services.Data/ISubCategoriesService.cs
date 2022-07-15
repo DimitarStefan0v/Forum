@@ -8,6 +8,6 @@
     {
         T GetSubCategoryByName<T>(string name);
 
-        Task<int> CreateAsync(SubCategoryInputModel input, string userId);
+        Task CreateAsync(SubCategoryInputModel input, string userId);
     }
 }

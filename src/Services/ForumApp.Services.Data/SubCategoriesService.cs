@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using System.Threading.Tasks;
+
     using ForumApp.Data.Common.Repositories;
     using ForumApp.Data.Models;
     using ForumApp.Services.Mapping;
@@ -16,7 +17,7 @@
             this.subCategoriesRepository = subCategoriesRepository;
         }
 
-        public async Task<int> CreateAsync(SubCategoryInputModel input, string userId)
+        public async Task CreateAsync(SubCategoryInputModel input, string userId)
         {
             var subCategory = new SubCategory
             {
@@ -28,8 +29,6 @@
 
             await this.subCategoriesRepository.AddAsync(subCategory);
             await this.subCategoriesRepository.SaveChangesAsync();
-
-            return subCategory.Id;
         }
 
         public T GetSubCategoryByName<T>(string name)
