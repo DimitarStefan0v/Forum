@@ -9,4 +9,19 @@
 
 <form method="post" asp-action="Create">
 
+    <label asp-for="Title"></label>
+    <input asp-for="Title" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+
+    <label asp-for="Content"></label>
+    <textarea asp-for="Content"></textarea>
+    <span asp-validation-for="Content" class="text-danger"></span>
+
+    <label asp-for="SubCategoryId"></label>
+    @*TODO: load all SubCategories from service and transform them to SelectListItem*@
+    <select asp-for="SubCategoryId"></select>
+    <span asp-validation-for="SubCategoryId" class="text-danger"></span>
+
+    <input type="submit" />
+
 </form>
