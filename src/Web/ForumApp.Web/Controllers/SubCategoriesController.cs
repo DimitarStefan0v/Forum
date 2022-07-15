@@ -3,6 +3,7 @@
     using ForumApp.Services.Data;
     using ForumApp.Web.ViewModels.Categories;
     using ForumApp.Web.ViewModels.SubCategories;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     public class SubCategoriesController : BaseController
@@ -23,6 +24,19 @@
         {
             var viewModel = this.subCategoriesService.GetSubCategoryByName<SubCategoriesInCategoryViewModel>(name);
             return this.View(viewModel);
+        }
+
+        [Authorize]
+        public IActionResult Create()
+        {
+            return this.View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Create(SubCategoryPostInputModel input)
+        {
+            return this.View();
         }
     }
 }
