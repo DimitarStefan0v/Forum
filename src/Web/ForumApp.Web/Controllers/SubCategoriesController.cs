@@ -36,7 +36,13 @@
         [HttpPost]
         public IActionResult Create(SubCategoryPostInputModel input)
         {
-            return this.View();
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            // TODO: add in db with service
+            return this.Redirect("/");
         }
     }
 }
